@@ -1,23 +1,25 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+  background-color: #007bff; /* Vibrant Blue (You can change the color code to your preferred shade of blue) */
+  color: #fff; /* Text color will be white for better contrast on the blue background */
 }
 
 h1 {
-  color: #0066cc;
+  color: #fff; /* White header text */
 }
 
 button {
   padding: 10px;
   margin: 5px;
-  background-color: #0066cc;
+  background-color: #0056b3; /* Slightly darker shade of blue for buttons */
   color: #fff;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0052a3;
+  background-color: #003d80; /* Darker blue on hover */
 }
 
 #balance, #boxesPurchased {
