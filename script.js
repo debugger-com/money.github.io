@@ -1,5 +1,6 @@
 let flopMoneyBalance = 0;
 let boxesPurchased = 0;
+let isCooldown = false;
 
 const updateBalance = () => {
   const balanceElement = document.getElementById('balance');
@@ -28,12 +29,20 @@ const purchaseBox = () => {
 };
 
 const eatBox = () => {
-  if (boxesPurchased >= 1) {
+  if (!isCooldown && boxesPurchased >= 1) {
     flopMoneyBalance += 10; // You can set the amount earned from eating a box here.
     boxesPurchased--;
     updateBalance();
     updateBoxesPurchased();
+    isCooldown = true;
+    document.getElementById('eatBoxButton').disabled = true;
+    setTimeout(() => {
+      isCooldown = false;
+      document.getElementById('eatBoxButton').disabled = false;
+    }, 10000); // 10 seconds cooldown (adjust this value as needed)
     alert("Yum! You just ate a box and gained some FlopMoney!");
+  } else if (isCooldown) {
+    alert("You must wait for the cooldown before eating another box.");
   } else {
     alert("You don't have any boxes to eat!");
   }
@@ -64,9 +73,6 @@ const loadData = () => {
 
 document.getElementById('workButton').addEventListener('click', workForFlopMoney);
 document.getElementById('purchaseButton').addEventListener('click', purchaseBox);
-document.getElementById('eatBoxButton').addEventListener('click', eatBox);
-document.getElementById('saveButton').addEventListener('click', saveData);
-document.getElementById('loadButton').addEventListener('click', loadData);
 
 // Initial load data from local storage
 loadData();
