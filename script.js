@@ -30,7 +30,7 @@ const purchaseBox = () => {
 
 const eatBox = () => {
   if (!isCooldown && boxesPurchased >= 1) {
-    flopMoneyBalance += 10; // You can set the amount earned from eating a box here.
+    flopMoneyBalance += 15; // You can set the amount earned from eating a box here.
     boxesPurchased--;
     updateBalance();
     updateBoxesPurchased();
