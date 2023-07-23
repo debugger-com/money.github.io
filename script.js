@@ -39,7 +39,7 @@ const eatBox = () => {
     setTimeout(() => {
       isCooldown = false;
       document.getElementById('eatBoxButton').disabled = false;
-    }, 10000); // 10 seconds cooldown (adjust this value as needed)
+    }, 2000); // 10 seconds cooldown (adjust this value as needed)
     alert("Yum! You just ate a box and gained some FlopMoney!");
   } else if (isCooldown) {
     alert("You must wait for the cooldown before eating another box.");
