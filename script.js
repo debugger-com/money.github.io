@@ -4,11 +4,13 @@ let boxesPurchased = 0;
 const updateBalance = () => {
   const balanceElement = document.getElementById('balance');
   balanceElement.innerText = flopMoneyBalance;
+  saveData(); // Save the updated balance to local storage
 };
 
 const updateBoxesPurchased = () => {
   const boxesPurchasedElement = document.getElementById('boxesPurchased');
   boxesPurchasedElement.innerText = boxesPurchased;
+  saveData(); // Save the updated boxes purchased to local storage
 };
 
 const workForFlopMoney = () => {
@@ -45,7 +47,6 @@ const saveData = () => {
     boxesPurchased: boxesPurchased
   };
   localStorage.setItem('flopMoneyData', JSON.stringify(data));
-  alert('Data saved successfully!');
 };
 
 const loadData = () => {
