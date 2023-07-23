@@ -14,6 +14,7 @@ const updateBoxesPurchased = () => {
 const workForFlopMoney = () => {
   flopMoneyBalance += 5; // You can set the amount earned from work here.
   updateBalance();
+  saveData(); // Save the updated data to local storage
 };
 
 const purchaseBox = () => {
@@ -22,6 +23,7 @@ const purchaseBox = () => {
     boxesPurchased++;
     updateBalance();
     updateBoxesPurchased();
+    saveData(); // Save the updated data to local storage
   } else {
     alert("Not enough FlopMoney to purchase a box!");
   }
@@ -33,7 +35,6 @@ const saveData = () => {
     boxesPurchased: boxesPurchased
   };
   localStorage.setItem('flopMoneyData', JSON.stringify(data));
-  alert('Data saved successfully!');
 };
 
 const loadData = () => {
@@ -44,9 +45,6 @@ const loadData = () => {
     boxesPurchased = data.boxesPurchased;
     updateBalance();
     updateBoxesPurchased();
-    alert('Data loaded successfully!');
-  } else {
-    alert('No saved data found!');
   }
 };
 
@@ -55,6 +53,5 @@ document.getElementById('purchaseButton').addEventListener('click', purchaseBox)
 document.getElementById('saveButton').addEventListener('click', saveData);
 document.getElementById('loadButton').addEventListener('click', loadData);
 
-// Initial updates
-updateBalance();
-updateBoxesPurchased();
+// Initial load data from local storage
+loadData();
