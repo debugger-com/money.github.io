@@ -45,6 +45,7 @@ const saveData = () => {
     boxesPurchased: boxesPurchased
   };
   localStorage.setItem('flopMoneyData', JSON.stringify(data));
+  alert('Data saved successfully!');
 };
 
 const loadData = () => {
@@ -55,6 +56,9 @@ const loadData = () => {
     boxesPurchased = data.boxesPurchased;
     updateBalance();
     updateBoxesPurchased();
+    alert('Data loaded successfully!');
+  } else {
+    alert('No saved data found!');
   }
 };
 
